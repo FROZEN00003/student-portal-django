@@ -12,7 +12,7 @@ urlpatterns = [
     path("dashboard/", dashboard, name="dashboard"),
     path("profile/", profile, name="profile"),
     path("grades/", grades_dashboard, name="grades"),
-    path("courses/", courses, name="courses"),
-    path("gpa/", gpa_dashboard, name="gpa"),     # ✅ GPA route added
+    path("courses/", courses, name="courses"),   # ✅ this is important
+    path("gpa/", gpa_dashboard, name="gpa"),
     path("logout/", logout_user, name="logout"),
 ]

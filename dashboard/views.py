@@ -112,9 +112,6 @@ def grades_dashboard(request):
     return render(request, "grades.html", {"grades": grades})
 
 
-def logout_user(request):
-    logout(request)
-    return redirect("login")
 @login_required(login_url='login')
 def gpa_dashboard(request):
     profile, _ = StudentProfile.objects.get_or_create(
@@ -137,7 +134,7 @@ def gpa_dashboard(request):
         count += 1
 
     if count > 0:
-        gpa = round(total_score / count / 10, 2)   # Example: 85 -> 8.5 GPA
+        gpa = round(total_score / count / 10, 2)
     else:
         gpa = 0
 
@@ -146,3 +143,7 @@ def gpa_dashboard(request):
         "gpa": gpa
     })
 
+
+def logout_user(request):
+    logout(request)
+    return redirect("login")
